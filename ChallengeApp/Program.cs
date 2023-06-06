@@ -1,11 +1,15 @@
-﻿string name = "Jacek ";
-string surname = "Zybaczynski";
-String question = "Where Are You from?";
-String answer = " Poland";
-String result = name + surname;
-String result2 = question + answer;
-int myAge = 33;
-Console.WriteLine("Full Name: " + result);
-Console.WriteLine("Age: " + myAge);
-Console.WriteLine(result2);
-
+﻿string name = "Ewa";
+bool gender = false;
+var age = 28;
+if (age < 30 && gender == false)
+{
+    Console.WriteLine(" Kobieta poniżej 30 lat");
+}
+else if (age < 30 && name == "Ewa" && gender == false)
+{
+    Console.WriteLine(" Ewa, lat 33");
+}
+else if (age < 18 && gender == true)
+{
+    Console.WriteLine(" Niepełnoletni mężczyzna");
+}
