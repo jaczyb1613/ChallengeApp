@@ -24,35 +24,35 @@ foreach (char letter in letters)
      { 
         counter1++; 
      } 
-    else if (letter == 2) 
+    else if (letter == '2') 
     { 
         counter2++;
     }
-    else if (letter == 3) 
+    else if (letter == '3') 
     { 
         counter3++;
     }
-    else if(letter == 4)
+    else if(letter == '4')
     {
         counter4++;
     }
-    else if(letter == 5)
+    else if(letter == '5')
     {
         counter5++;
     }
-    else if(letter == 6)
+    else if(letter == '6')
     {
         counter6++;
     }
-    else if(letter == 7)
+    else if(letter == '7')
     {
         counter7++;
     }
-    else if(letter == 8)
+    else if(letter == '8')
     {
         counter8++;
     }
-    else if(letter == 9)
+    else if(letter == '9')
     {
         counter9++;
     }
