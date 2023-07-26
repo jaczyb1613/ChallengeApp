@@ -5,22 +5,22 @@ Employee employee2 = new Employee("Kamil", " Kolodziejczyk ", 33);
 Employee employee3 = new Employee("Artur", " Nowak ", 33);
 
 employee1.AddScore(5);
-employee1.AddScore(2);
+employee1.AddScore(5);
 employee1.AddScore(3);
 employee1.AddScore(8);
-employee1.AddScore(1);
+employee1.AddScore(5);
 
 employee2.AddScore(2);
 employee2.AddScore(1);
-employee2.AddScore(4);
+employee2.SubtractScore(-5);
 employee2.AddScore(5);
 employee2.AddScore(2);
 
 employee3.AddScore(1);
-employee3.AddScore(3);
+employee3.AddScore(4);
 employee3.AddScore(2);
 employee3.AddScore(3);
-employee3.AddScore(1);
+employee3.SubtractScore(-6);
 
 
 List<Employee> employees = new List<Employee>()
