@@ -3,46 +3,37 @@ namespace ChallengeApp.Tests
     public class Tests
     {
         [Test]
-        public void WhenEmployeeCollecetSetsOfPoints_ShouldReturnCorrectResult()
+        public void WhenEmployeeCollectScoresShouldReturnCorrectStatistics()
         {
+            //arrange
             var employee = new Employee("Jacek", "Zybaczynski", 33);
-            employee.AddScore(5);
-            employee.AddScore(5);
-            employee.AddScore(3);
+            employee.AddScore(1);
+            employee.AddScore(2);
+            employee.AddScore(6);
             employee.AddScore(8);
-            employee.AddScore(5);
+            
+            //act
+            var statistics = employee.GetStatistics();
 
-            var result = employee.Result;
-
-            Assert.AreEqual(26, result);
+            //assert
+            Assert.AreEqual(8, statistics.Max);
+            Assert.AreEqual(1, statistics.Min);
+        
         }
         [Test]
-        public void WhenEmployeeCollectedAndLostSetsOfPoints_ShouldReturnCorrectResult()
+        public void WhenEmployeeCollectSameScoresShouldReturnCorrectStatistics()
         {
-            var employee = new Employee("Kamil", "Kolodziejczyk", 33);
-            employee.AddScore(2);
-            employee.AddScore(1);
-            employee.SubtractScore(-5);
-            employee.AddScore(5);
-            employee.AddScore(2);
-
-            var result = employee.Result;
-
-            Assert.AreEqual(5, result);
-        }
-        [Test]
-        public void WhenEmployeeCollectSetsOfPointsAndLoseOneSet_ShouldReturnCorrectResult()
-        {
-            var employee = new Employee("Artur", "Nowak", 33);
-            employee.AddScore(1);
-            employee.AddScore(4);
-            employee.AddScore(2);
+            //arrange
+            var employee = new Employee("Jacek", "Zybaczynski", 33);
             employee.AddScore(3);
-            employee.SubtractScore(-6);
+            employee.AddScore(3);
+            employee.AddScore(3);
+            //act
+            var statistics = employee.GetStatistics();
 
-            var result = employee.Result;
-
-            Assert.AreEqual(4, result);
+            //assert
+            Assert.AreEqual(3, statistics.Average);
+          
         }
     }
 }

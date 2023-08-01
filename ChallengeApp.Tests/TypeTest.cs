@@ -13,8 +13,9 @@
         [Test]
         public void CheckingIfTwoIntigersAreEqual()
         {
-            int number1 = 7;
-            int number2 = 7;
+
+        int number1 = 7;
+        int number2 = 7;
 
             Assert.AreEqual(number1, number2);
 
@@ -22,14 +23,15 @@
         [Test]
         public void CheckingthatTwoEmployessAreNotEqual()
         {
-            var employee1 = GetEmployee("Paweł", "Zybaczynski", 33);
-            var employee2 = GetEmployee("Jacek", "Zybaczynski", 33);
-
+            
+            var employee1 = GetEmployee("Paweł");
+            var employee2 = GetEmployee("Jacek");
+            
             Assert.AreNotEqual(employee1.Name, employee2.Name);
         }
-        private Employee GetEmployee(string name, string surname, int age)
+        private Employee GetEmployee(string name)
         {
-            return new Employee(name, surname, age);
+            return new Employee(name);
         }
     }
 }
