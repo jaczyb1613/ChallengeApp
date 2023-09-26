@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp
+﻿using static System.Formats.Asn1.AsnWriter;
+
+namespace ChallengeApp
 {
     public class Employee
     {
@@ -52,14 +54,14 @@
             float scoreToLong = (long)score;
             this.AddScore(scoreToLong);
         }
-        public Statistics GetStatistics()
+        public Statistics GetStatisticsWithForEach()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
             statistics.Max = float.MinValue;
             statistics.Min = float.MaxValue;
 
-            foreach(var score in this.Scores)
+            foreach (var score in this.Scores)
             {
                 statistics.Max = Math.Max(statistics.Max, score);
                 statistics.Min = Math.Min(statistics.Min, score);
@@ -67,6 +69,64 @@
             }
             statistics.Average /= this.Scores.Count;
 
+            return statistics;
+        }
+        public Statistics GetStatisticsWithFor()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+
+            for (var i = 0; i<Scores.Count; i++)
+            {
+                statistics.Max = Math.Max(statistics.Max, Scores[i]);
+                statistics.Min = Math.Min(statistics.Min, Scores[i]);
+                statistics.Average += Scores[i];
+            }
+            statistics.Average /= this.Scores.Count;
+
+            return statistics;
+        }
+        public Statistics GetStatisticsWithDoWhile()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            
+            var index = 0;
+            
+            do
+            {
+                statistics.Max = Math.Max(statistics.Max, this.Scores[index]);
+                statistics.Min = Math.Min(statistics.Min, this.Scores[index]);
+                statistics.Average += this.Scores[index];
+                index++;
+            
+            } while (index < this.Scores.Count);
+            
+            statistics.Average /= this.Scores.Count;
+            return statistics;
+        }
+        public Statistics GetStatisticsWithWhile()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            
+            var index = 0;
+
+            while (index < this.Scores.Count) 
+            {
+                statistics.Max = Math.Max(statistics.Max, this.Scores[index]);
+                statistics.Min = Math.Min(statistics.Min, this.Scores[index]);
+                statistics.Average += this.Scores[index];
+                index++;
+            } 
+
+            statistics.Average /= this.Scores.Count;
             return statistics;
         }
     }
