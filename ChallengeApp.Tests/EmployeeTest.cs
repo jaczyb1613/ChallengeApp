@@ -9,12 +9,12 @@ public class EmployeeTests
         // Arrange
 
         var employee = new Employee("Jacek", "Zybaczynski");
-        employee.AddScore(8);
-        employee.AddScore(3);
-        employee.AddScore(5);
-        employee.AddScore(8);
-        employee.AddScore(3);
-        employee.AddScore(5);
+        employee.AddScore('A');
+        employee.AddScore('B');
+        employee.AddScore('C');
+        employee.AddScore('D');
+        employee.AddScore('E');
+        
 
         // Act
 
@@ -22,23 +22,20 @@ public class EmployeeTests
 
         // Assert
 
-        Assert.AreEqual(8, statisctics.Max);
-
-
+        Assert.AreEqual(100 ,statisctics.Max);
     }
-    [Test]
 
+    [Test]
     public void WhenStaticticsIsCalled_ShouldReturnCorrectMin()
     {
         // Arrange
 
         var employee = new Employee("Jacek", "Zybaczynski");
-        employee.AddScore(384728);
-        employee.AddScore(737364);
-        employee.AddScore(646474);
-        employee.AddScore(293948);
-        employee.AddScore(3598585);
-        employee.AddScore(5484848);
+        employee.AddScore('A');
+        employee.AddScore('B');
+        employee.AddScore('C');
+        employee.AddScore('D');
+        employee.AddScore('E');
 
         // Act
 
@@ -46,7 +43,7 @@ public class EmployeeTests
 
         // Assert
 
-        Assert.AreEqual(293948, statisctics.Min);
+        Assert.AreEqual(20, statisctics.Min);
     }
     [Test]
 
@@ -55,12 +52,11 @@ public class EmployeeTests
         // Arrange
 
         var employee = new Employee("Jacek", "Zybaczynski");
-        employee.AddScore(60);
-        employee.AddScore(80);
-        employee.AddScore(200);
-        employee.AddScore(100);
-        employee.AddScore(2);
-        employee.AddScore(20);
+        employee.AddScore('A');
+        employee.AddScore('B');
+        employee.AddScore('C');
+        employee.AddScore('D');
+        employee.AddScore('E');
 
         // Act
 
@@ -68,7 +64,7 @@ public class EmployeeTests
 
         // Assert
 
-        Assert.AreEqual(77, statisctics.Average);
+        Assert.AreEqual('B' , statisctics.AverageLetter);
     }
 }
 

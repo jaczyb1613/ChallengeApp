@@ -5,28 +5,43 @@ namespace ChallengeApp
     public class Employee
     {
         private List<float> Scores = new List<float>();
-   
+        public Employee()
+        {
+            
+        }
+        public Employee(string name)
+        {
+            this.Name = name;
+            
+        }
         public Employee(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
         }
-      
+        public Employee(string name, string surname, string age)
+        {
+            this.Name = name;
+            this.Surname = surname;
+            this.Age = age;
+        }
+
         public string Name { get; private set; }
         public string Surname { get; private set; }
-        
+        public string Age { get; private set; }
+
         public void AddScore(float score)
         {
-           
-            if(score >= 0 && score <= 100)  
+
+            if (score >= 0 && score <= 100)
             {
-                this.Scores.Add(score); 
+                this.Scores.Add(score);
             }
             else
             {
                 Console.WriteLine("Invalid score value");
             }
-            
+
         }
         public void AddScore(string score)
         {
@@ -36,8 +51,8 @@ namespace ChallengeApp
             }
             else
             {
-             Console.WriteLine("String is not float");
-            }   
+                Console.WriteLine("String is not float");
+            }
         }
         public void Addscore(int score)
         {
@@ -54,7 +69,36 @@ namespace ChallengeApp
             float scoreToLong = (long)score;
             this.AddScore(scoreToLong);
         }
-        public Statistics GetStatisticsWithForEach()
+        public void AddScore(char score)
+        {
+            switch (score)
+            {
+                case 'A':
+                case 'a':
+                    this.Scores.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.Scores.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.Scores.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.Scores.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.Scores.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong letter");
+                    break;
+            }
+        }
+        public Statistics GetStatistics()
         {
             var statistics = new Statistics();
             statistics.Average = 0;
@@ -69,65 +113,28 @@ namespace ChallengeApp
             }
             statistics.Average /= this.Scores.Count;
 
-            return statistics;
-        }
-        public Statistics GetStatisticsWithFor()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
-            for (var i = 0; i<Scores.Count; i++)
+            switch(statistics.Average)
             {
-                statistics.Max = Math.Max(statistics.Max, Scores[i]);
-                statistics.Min = Math.Min(statistics.Min, Scores[i]);
-                statistics.Average += Scores[i];
+                case var average when average >= 80:
+                    statistics.AverageLetter = 'A'; 
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+
             }
-            statistics.Average /= this.Scores.Count;
 
             return statistics;
         }
-        public Statistics GetStatisticsWithDoWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            
-            var index = 0;
-            
-            do
-            {
-                statistics.Max = Math.Max(statistics.Max, this.Scores[index]);
-                statistics.Min = Math.Min(statistics.Min, this.Scores[index]);
-                statistics.Average += this.Scores[index];
-                index++;
-            
-            } while (index < this.Scores.Count);
-            
-            statistics.Average /= this.Scores.Count;
-            return statistics;
-        }
-        public Statistics GetStatisticsWithWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            
-            var index = 0;
 
-            while (index < this.Scores.Count) 
-            {
-                statistics.Max = Math.Max(statistics.Max, this.Scores[index]);
-                statistics.Min = Math.Min(statistics.Min, this.Scores[index]);
-                statistics.Average += this.Scores[index];
-                index++;
-            } 
-
-            statistics.Average /= this.Scores.Count;
-            return statistics;
-        }
     }
 }
