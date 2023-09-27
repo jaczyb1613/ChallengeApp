@@ -69,29 +69,34 @@ namespace ChallengeApp
             float scoreToLong = (long)score;
             this.AddScore(scoreToLong);
         }
+        public void Addscore(char score)
+        {
+            float scoreToChar = (char)score;
+            this.AddScore(scoreToChar);
+        }
         public void AddScore(char score)
         {
             switch (score)
             {
                 case 'A':
                 case 'a':
-                    this.Scores.Add(100);
+                    this.Addscore(100);
                     break;
                 case 'B':
                 case 'b':
-                    this.Scores.Add(80);
+                    this.AddScore(80);
                     break;
                 case 'C':
                 case 'c':
-                    this.Scores.Add(60);
+                    this.AddScore(60);
                     break;
                 case 'D':
                 case 'd':
-                    this.Scores.Add(40);
+                    this.AddScore(40);
                     break;
                 case 'E':
                 case 'e':
-                    this.Scores.Add(20);
+                    this.AddScore(20);
                     break;
                 default:
                     Console.WriteLine("Wrong letter");
@@ -130,11 +135,8 @@ namespace ChallengeApp
                 default:
                     statistics.AverageLetter = 'E';
                     break;
-
-            }
-
+                }
             return statistics;
         }
-
     }
 }
