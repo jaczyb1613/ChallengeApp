@@ -4,6 +4,7 @@ namespace ChallengeApp
 {
     public class Employee
     {
+        private readonly char sex = 'M';
         private List<float> Scores = new List<float>();
         public Employee()
         {
@@ -24,6 +25,7 @@ namespace ChallengeApp
             this.Name = name;
             this.Surname = surname;
             this.Age = age;
+            this.sex = 'K';
         }
 
         public string Name { get; private set; }
@@ -39,8 +41,8 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("Invalid score value");
-            }
+                throw new Exception("Invalid score value");
+            }   
 
         }
         public void AddScore(string score)
@@ -51,7 +53,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float");
             }
         }
         public void Addscore(int score)
@@ -99,9 +101,9 @@ namespace ChallengeApp
                     this.AddScore(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong letter");
-                    break;
-            }
+                    throw new Exception("Wrong letter");
+                
+}
         }
         public Statistics GetStatistics()
         {
@@ -120,16 +122,16 @@ namespace ChallengeApp
 
             switch(statistics.Average)
             {
-                case var average when average >= 80:
+                case var average when average > 80:
                     statistics.AverageLetter = 'A'; 
                     break;
-                case var average when average >= 60:
+                case var average when average > 60:
                     statistics.AverageLetter = 'B';
                     break;
-                case var average when average >= 40:
+                case var average when average > 40:
                     statistics.AverageLetter = 'C';
                     break;
-                case var average when average >= 20:
+                case var average when average > 20:
                     statistics.AverageLetter = 'D';
                     break;
                 default:

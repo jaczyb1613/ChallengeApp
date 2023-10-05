@@ -4,7 +4,6 @@ Console.WriteLine("Witamy w programie Employees ByJack do oceny pracowników");
 Console.WriteLine("------------------------------------------------------");
 Console.WriteLine();
 
-
 var employee = new Employee();
 
 while (true)
@@ -15,7 +14,14 @@ while (true)
     {
         break;
     }
-    employee.AddScore(input);
+    try 
+    {
+        employee.AddScore(input);
+    }
+    catch(Exception exception)
+    {
+        Console.WriteLine($"Exception Catched: {exception.Message}");
+    }
 }
 
 var statictics = employee.GetStatistics();

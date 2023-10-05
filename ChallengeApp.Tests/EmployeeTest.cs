@@ -64,7 +64,7 @@ public class EmployeeTests
 
         // Assert
 
-        Assert.AreEqual('B' , statisctics.AverageLetter);
+        Assert.AreEqual('C' , statisctics.AverageLetter);
     }
 }
 
