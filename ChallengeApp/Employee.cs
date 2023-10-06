@@ -8,12 +8,12 @@ namespace ChallengeApp
         private List<float> Scores = new List<float>();
         public Employee()
         {
-            
+
         }
         public Employee(string name)
         {
             this.Name = name;
-            
+
         }
         public Employee(string name, string surname)
         {
@@ -42,7 +42,7 @@ namespace ChallengeApp
             else
             {
                 throw new Exception("Invalid score value");
-            }   
+            }
 
         }
         public void AddScore(string score)
@@ -102,8 +102,9 @@ namespace ChallengeApp
                     break;
                 default:
                     throw new Exception("Wrong letter");
-                
-}
+
+
+            }
         }
         public Statistics GetStatistics()
         {
@@ -120,10 +121,10 @@ namespace ChallengeApp
             }
             statistics.Average /= this.Scores.Count;
 
-            switch(statistics.Average)
+            switch (statistics.Average)
             {
                 case var average when average > 80:
-                    statistics.AverageLetter = 'A'; 
+                    statistics.AverageLetter = 'A';
                     break;
                 case var average when average > 60:
                     statistics.AverageLetter = 'B';
@@ -137,7 +138,7 @@ namespace ChallengeApp
                 default:
                     statistics.AverageLetter = 'E';
                     break;
-                }
+            }
             return statistics;
         }
     }
