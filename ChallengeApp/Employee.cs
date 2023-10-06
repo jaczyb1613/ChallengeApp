@@ -6,7 +6,11 @@ namespace ChallengeApp
     {
         private readonly char sex = 'M';
         private List<float> Scores = new List<float>();
-     
+        public Employee()
+        {
+            this.Name = "";
+
+        }
         public Employee(string name)
         {
             this.Name = name;
