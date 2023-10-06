@@ -3,6 +3,7 @@
 Console.WriteLine("Witamy w programie Employees ByJack do oceny pracowników");
 Console.WriteLine("------------------------------------------------------");
 Console.WriteLine();
+Console.WriteLine();
 
 var employee = new Employee();
 
