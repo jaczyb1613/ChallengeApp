@@ -1,41 +1,36 @@
-﻿using static System.Formats.Asn1.AsnWriter;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
-        private readonly char sex = 'M';
         private List<float> Scores = new List<float>();
-        public Employee()
+      
+        public Employee(string name, string surname, string age, char sex)
+            :base(name, surname, age, sex)
         {
-            this.Name = "";
+            
+        }
+        public Employee(string name, string surname, string age)
+            :base(name, surname, age, 'M')
+        {
+           
+        }
+        public Employee(string name, string surname)
+            : base(name, surname, "no age")
+        {
 
         }
         public Employee(string name)
+           : base(name, "no surname", "no age")
         {
-            this.Name = name;
 
         }
-        public Employee(string name, string surname)
+        public Employee()
+         : base("name", "no surname", "no age",'M')
         {
-            this.Name = name;
-            this.Surname = surname;
-        }
-        public Employee(string name, string surname, string age)
-        {
-            this.Name = name;
-            this.Surname = surname;
-            this.Age = age;
-            this.sex = 'K';
-        }
 
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-        public string Age { get; private set; }
-
+        }
         public void AddScore(float score)
         {
-
             if (score >= 0 && score <= 100)
             {
                 this.Scores.Add(score);
