@@ -5,7 +5,8 @@ Console.WriteLine("------------------------------------------------------");
 Console.WriteLine();
 Console.WriteLine();
 
-var employee = new Employee("Jacek", "Zybaczynski", "33", 'M');
+var employee = new Employee("Jacek", "Zybaczynski");
+var supervisor = new Supervisor("Jacek", "Zybaczynski");
 
 while (true)
 {
@@ -26,6 +27,7 @@ while (true)
 }
 
 var statictics = employee.GetStatistics();
+var statictics2 = supervisor.GetStatistics();
 Console.WriteLine("Poniżej wyniki: Średnia, Najmniejsza i największa liczba:");
 Console.WriteLine("---------------------------------------------------------");
 Console.WriteLine($"Średnia z ocen: {statictics.Average:N2}");

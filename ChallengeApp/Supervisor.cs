@@ -1,11 +1,12 @@
 ﻿namespace ChallengeApp
 {
-    public class Employee : IEmployee
+    public class Supervisor : IEmployee
     {
+
         private List<float> Scores = new List<float>();
-      
-        public Employee(string name, string surname)
-            
+
+        public Supervisor(string name, string surname)
+
         {
             this.Name = name;
             this.Surname = surname;
@@ -22,18 +23,6 @@
             else
             {
                 throw new Exception("Invalid score value");
-            }
-
-        }
-        public void AddScore(string score)
-        {
-            if (float.TryParse(score, out float result))
-            {
-                this.AddScore(result);
-            }
-            else
-            {
-                throw new Exception("String is not float");
             }
         }
         public void Addscore(int score)
@@ -55,6 +44,81 @@
         {
             float scoreToChar = (char)score;
             this.AddScore(scoreToChar);
+        }
+        public void AddScore(string scores)
+        {
+            throw new Exception();
+        }
+        public void AddScores(string score)
+        {
+            switch (score)
+            {
+                case "6":
+                    this.AddScore(100);
+                    break;
+                case "6-":
+                case "-6":
+                    this.AddScore(95);
+                    break;
+                case "5":
+                    this.AddScore(80);
+                    break;
+                case "+5":
+                case "5+":
+                    this.AddScore(85);
+                    break;
+                case "-5":
+                case "5-":
+                    this.AddScore(75);
+                    break;
+                case "4":
+                    this.AddScore(60);
+                    break;
+                case "+4":
+                case "4+":
+                    this.AddScore(65);
+                    break;
+                case "-4":
+                case "4-":
+                    this.AddScore(55);
+                    break;
+                case "3":
+                    this.AddScore(40);
+                    break;
+                case "+3":
+                case "3+":
+                    this.AddScore(45);
+                    break;
+                case "-3":
+                case "3-":
+                    this.AddScore(35);
+                    break;
+                case "2":
+                    this.AddScore(20);
+                    break;
+                case "+2":
+                case "2+":
+                    this.AddScore(25);
+                    break;
+                case "-2":
+                case "2-":
+                    this.AddScore(15);
+                    break;
+                case "1":
+                    this.AddScore(0);
+                    break;
+                case "+1":
+                case "1+":
+                    this.AddScore(5);
+                    break;
+                case "-1":
+                case "1-":
+                    this.AddScore(0);
+                    break;
+                default:
+                    throw new Exception("Invalid data provide, please try again");
+                    break;
+            }
         }
         public void AddScore(char score)
         {
@@ -82,8 +146,6 @@
                     break;
                 default:
                     throw new Exception("Wrong letter");
-
-
             }
         }
         public Statistics GetStatistics()
@@ -120,6 +182,7 @@
                     break;
             }
             return statistics;
-        }
+        } 
     }
 }
+
