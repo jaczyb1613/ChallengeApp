@@ -116,7 +116,15 @@
                     this.AddScore(0);
                     break;
                 default:
-                    throw new Exception("Invalid data provide, please try again");
+                    
+                    if (float.TryParse(score, out float result))
+                    {
+                        this.AddScore(result);
+                    }
+                    else
+                    {
+                        throw new Exception("String is not float");
+                    }
                     break;
             }
         }

@@ -16,21 +16,33 @@ while (true)
     {
         break;
     }
-    try 
+    try
     {
-        employee.AddScore(input);
+        //employee.AddScore(input);
+        supervisor.AddScores(input);
     }
-    catch(Exception exception)
+    catch (Exception exception)
     {
         Console.WriteLine($"Exception Catched: {exception.Message}");
     }
 }
 
 var statictics = employee.GetStatistics();
-var statictics2 = supervisor.GetStatistics();
-Console.WriteLine("Poniżej wyniki: Średnia, Najmniejsza i największa liczba:");
+
+Console.WriteLine("Poniżej wyniki: Średnia, Najmniejsza i największa liczba dla pracownika:");
 Console.WriteLine("---------------------------------------------------------");
 Console.WriteLine($"Średnia z ocen: {statictics.Average:N2}");
 Console.WriteLine($"Najniższa podana liczba: {statictics.Min}");
 Console.WriteLine($"Najwyższa podana liczba: {statictics.Max}");
+
+var statictics2 = supervisor.GetStatistics();
+
+Console.WriteLine("Poniżej wyniki: Średnia, Najmniejsza i największa liczba dla supervisora:");
+Console.WriteLine("---------------------------------------------------------");
+Console.WriteLine($"Średnia z ocen: {statictics2.Average:N2}");
+Console.WriteLine($"Najniższa podana liczba: {statictics2.Min}");
+Console.WriteLine($"Najwyższa podana liczba: {statictics2.Max}");
+
+
+
 

@@ -15,7 +15,7 @@
 
         public void AddScore(float score)
         {
-            if (score >= 0 && score <= 100)
+             if (score >= 0 && score <= 100)
             {
                 this.Scores.Add(score);
             }
